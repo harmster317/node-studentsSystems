@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>学生管理系统</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/public/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">学生管理系统</a>
+        </div>
+        <div class="row">
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
+            <h1 class="page-header">Top3</h1>
+            <div class="row placeholders">
+                {{ each top }}
+                <div class="col-xs-6 col-sm-4 placeholder">
+
+                    <span class="text-muted">{{ $value.hobbies }}</span>
+                </div>
+                {{ /each }}
+            </div>
+            <h2 class="sub-header">学生列表</h2>
+            <form class="form-inline" action="/students">
+                <div class="form-group">
+                    <label for="id" style="margin:5px">搜索:</label>
+                    <input type="text" style="margin:5px ;width: 400px" class="form-control" name="name" id="id"
+                        placeholder="请输入姓名">
+                </div>
+                <div class="form-inline">
+                    <button type="submit" class="btn btn-default" style="width: 100px ;margin:5px">搜索</button>
+                    <a class="btn btn-success" href="/stu/new">添加学生</a>
+                </div>
+            </form>
+            <div class="table-responsive" style="margin-top: 50px">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>爱好</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{each msgs msg index}}
+                        <tr>
+                            <td>{{msg.id}}</td>
+                            <td>{{msg.name}}</td>
+                            <td>{{msg.gender}}</td>
+                            <td>{{msg.age}}</td>
+                            <td>{{msg.hobby}}</td>
+                            <td>
+                                <a href="/stu/edit">编辑</a>
+                                <a href="">删除</a>
+                            </td>
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

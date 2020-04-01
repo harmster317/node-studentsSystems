@@ -1,0 +1,7 @@
+{
+    "stus":[
+        {"id":1,"name":"zhangsan","gender":"male","age":11,"hobby":"basketball"},
+        {"id":2,"name":"lisi","gender":"male","age":22,"hobby":"football"},
+        {"id":3,"name":"hanmeimei","gender":"female","age":18,"hobby":"sing"}
+    ]
+}
